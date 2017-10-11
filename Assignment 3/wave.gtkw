@@ -1,0 +1,40 @@
+[*]
+[*] GTKWave Analyzer v3.3.66 (w)1999-2015 BSI
+[*] Fri Sep 15 16:36:56 2017
+[*]
+[dumpfile] "/home/ganga/Documents/Academics/5th Semester/EE2003 : Computer Organisation/Assignments/Assignment 3/EE15B025/testbench.vcd"
+[dumpfile_mtime] "Fri Sep 15 16:21:04 2017"
+[dumpfile_size] 3136
+[savefile] "/home/ganga/Documents/Academics/5th Semester/EE2003 : Computer Organisation/Assignments/Assignment 3/EE15B025/wave.gtkw"
+[timestart] 0
+[size] 1839 1056
+[pos] -840 -429
+*-2.279721 0 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[sst_width] 225
+[signals_width] 118
+[sst_expanded] 1
+[sst_vpaned_height] 320
+@28
+testbench.a[3:0]
+@200
+-
+@28
+testbench.b[3:0]
+@200
+-
+@28
+testbench.control
+@200
+-
+@28
+testbench.result[3:0]
+@200
+-
+@28
+testbench.carry
+@200
+-
+@28
+testbench.overflow
+[pattern_trace] 1
+[pattern_trace] 0

@@ -1,0 +1,72 @@
+
+;<Nested Delay Subroutine>
+;Program using 2 nested subroutines, ie, one nested subroutine called inside another nested subroutine called inside another nested subroutine
+
+;data
+
+LXI SP,0FFFH ;initialising stack pointer to 0x0FFF
+JMP start ;go to label 'start' - main programme
+
+;code
+
+;Delay subroutine - called from the second delay subroutine
+
+DELAY3:	PUSH PSW ;push flag and accumulator values into stack
+	MVI B,02H ;load the value into register B
+
+	;Loop using 8-bit B register for the third subroutine
+	;Loop executed 2 times
+
+	LOOP3:	DCR B ;decrement the register value
+		JNZ LOOP3 ;if the previous operation doesn't result in zero, then jump to label 'loop3'
+		POP PSW ;pop the top content of stack and put them in psw (accumulator and flag)
+		RET ;return back to the second delay subroutine
+
+;Delay subroutine - called from the first delay subroutine
+
+DELAY2:	PUSH PSW ;push flag and accumulator values into stack
+	MVI E,0EAH ;load the value into register E
+
+	;Loop using 8-bit E register for the second subroutine
+	;Loop executed 234 times
+
+	LOOP2:	CALL DELAY3 ;call the third delay subroutine from the loop of second delay subroutine
+		DCR E ;decrement the register value
+		JNZ LOOP2 ;if the previous operation doesn't result in zero, then jump to label 'loop2'
+		POP PSW ;pop the top content of stack and put them in psw (accumulator and flag)
+		RET ;return back to the first delay subroutine
+
+;Delay subroutine - called from main programme
+
+DELAY1:	PUSH PSW ;push flag and accumulator values into stack
+	MVI D,40H ;load the value into register E
+
+	;Loop using 8-bit D register for the first subroutine
+	;Loop executed 64 times
+
+	LOOP1a:	CALL DELAY2 ;call the second delay subroutine from the loop of first delay subroutine
+		DCR D ;decrement the register value
+		JNZ LOOP1a ;if the previous operation doesn't result in zero, then jump to label 'loop1a'
+		MVI D,19H
+
+	;Loop for compensating for the extra delay required
+	;Loop executed 25 times
+
+	LOOP1b:	DCR D ;decrement the register value
+		JNZ LOOP1b ;if the previous operation doesn't result in zero, then jump to label 'loop1b'
+	
+		POP PSW ;pop the top content of stack and put them in psw (accumulator and flag)
+		RET ;return back to the main programme
+
+; Main Programme
+
+start:	MVI A,00H ;load accumulator with the value 0x00
+	ADI 0FEH ;add 0xFE to the accumulator
+	ADI 01H ;add 0x01 to the accumulator
+	LXI B,1234H ;initialise register pair BC
+	LXI D,5678H ;initialise register pair DE
+	LXI H,0ABCDH ;initialise register pair HL
+	CALL DELAY1 ;call the first delay subroutine from main programme
+
+
+hlt ;stop programme execution

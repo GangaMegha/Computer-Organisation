@@ -1,0 +1,34 @@
+[PARSEC] Benchmarks to run:  fluidanimate
+
+[PARSEC] [========== Running benchmark fluidanimate ==========]
+[PARSEC] Setting up run directory.
+[PARSEC] Unpacking benchmark input 'test'.
+in_5K.fluid
+[PARSEC] Running 'SNIPER_APP_LD_PRELOAD=; unset LD_PRELOAD; /home/jasmine/Downloads/sniper-5.3/run-sniper -n 2 -m 'localhost' -d '/home/jasmine/Downloads/sniper-5.3/benchmarks/ee15b025' -c /home/jasmine/Downloads/sniper-5.3/benchmarks/ee15b025/gainestown.cfg --cache-only --roi --curdir=/home/jasmine/Downloads/sniper-5.3/benchmarks  --  /home/jasmine/Downloads/sniper-5.3/benchmarks/parsec/parsec-2.1/pkgs/apps/fluidanimate/inst/amd64-linux.gcc-sniper/bin/fluidanimate 1 1 in_5K.fluid out.fluid':
+[PARSEC] [---------- Beginning of output ----------]
+[SNIPER] Start
+[SNIPER] --------------------------------------------------------------------------------
+[SNIPER] Sniper using Pin frontend
+[SNIPER] Running pre-ROI region in  CACHE_ONLY mode
+[SNIPER] Running application ROI in CACHE_ONLY mode
+[SNIPER] Running post-ROI region in FAST_FORWARD mode
+[SNIPER] --------------------------------------------------------------------------------
+PARSEC Benchmark Suite Version 2.1
+[HOOKS] PARSEC Hooks Version 1.2
+Loading file "in_5K.fluid"...
+Number of cells: 4725
+Number of particles: 4800 (0 skipped)
+[HOOKS] Entering ROI
+[SNIPER] Enabling performance models
+[SNIPER] Disabling performance models
+[SNIPER] Leaving ROI after 27.91 seconds
+[SNIPER] Simulated 32.4M instructions, 0.0M cycles, 32371572.00 IPC
+[SNIPER] Simulation speed 1158.9 KIPS (579.5 KIPS / target core - 1725.7ns/instr)
+[SNIPER] Setting instrumentation mode to FAST_FORWARD
+[HOOKS] Leaving ROI
+Saving file "out.fluid"...
+[HOOKS] Total time spent in ROI: 27.872s
+[SNIPER] End
+[SNIPER] Elapsed time: 34.56 seconds
+[PARSEC] [----------    End of output    ----------]
+[PARSEC] Done.
