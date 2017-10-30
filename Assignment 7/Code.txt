@@ -1,0 +1,38 @@
+The code.txt data file.  A Mic-1 program that does a memory read using indirect addressing and pre-increment and pushes the value into stack.
+
+6 Microinstructions:
+
+A   C
+M   O    A        M  M        E
+U   N    L    S   B  A  R  W  N     C        B        A          ADDR
+X   D    U    H   R  R  D  R  C
+
+0  0 0  0 0  0 0  0  0  0  0  1  1 0 1 1  0 1 1 0  1 0 1 1  0 0 0 0 0 0 0 0
+0  0 0  1 0  0 0  0  1  1  0  0  0 0 0 0  1 0 1 1  0 0 0 0  0 0 0 0 0 0 0 0
+0  0 0  1 0  0 0  0  0  1  0  0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0 0 0 0 0
+0  0 0  0 0  0 0  0  0  0  0  1  0 0 1 0  0 1 1 1  0 0 1 0  0 0 0 0 0 0 0 0
+0  0 0  1 0  0 0  0  1  0  1  0  0 0 0 0  0 0 1 0  0 0 0 0  0 0 0 0 0 0 0 0
+0  0 0  1 0  0 0  0  0  0  1  0  0 0 0 0  0 0 0 0  0 0 0 0  0 0 0 0 0 0 0 0
+
+0 Mac-1 instructions:
+
+12 data item for main memory:
+
+0 0 0 0 0 0 0 0 0 11 12 13
+
+Register values:
+
+PC  AC  SP  IR  TIR  0  +1  -1  AMASK  SMASK  A  B  C  D  E  F
+
+0   40  69  0   0    0   1  -1  4095   255    0  50  0  0  0  0
+
+The MAL form of the above microinstructions follows:
+
+0:	b := b+1;
+1:	mar := b; rd;
+2:	rd;
+3:	sp := sp + -1;
+4:	mar := sp; wr;
+5:	wr;
+
+End of the code.txt data file.
